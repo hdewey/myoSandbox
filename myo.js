@@ -4,8 +4,9 @@ Myo.on("connected", function(data, timestamp) {
   console.log("Myo successfully connected. Data: " + JSON.stringify(data) + ". Timestamp: " + timestamp + ".");
 });
 
-Myo.on("fingers_spread", function() {
-  console.log("Fingers spread!");
+Myo.on("pose", function(pose_name) {
+  console.log("Myo pose detected! Pose was: " + pose_name + ".");
 });
 
-Myo.connect('com.hdewey.Sandbox');
+
+Myo.connect('com.hdewey.Sandbox', require('ws'));
